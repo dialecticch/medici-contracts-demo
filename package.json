@@ -1,0 +1,52 @@
+{
+  "name": "medici-contracts",
+  "devDependencies": {
+    "@gnosis.pm/safe-contracts": "^1.3.0",
+    "@gnosis.pm/safe-deployments": "^1.12.0",
+    "@nomicfoundation/hardhat-chai-matchers": "^1.0.3",
+    "@nomicfoundation/hardhat-toolbox": "^1.0.2",
+    "@typescript-eslint/eslint-plugin": "^5.17.0",
+    "@typescript-eslint/parser": "^5.17.0",
+    "dotenv": "^16.0.1",
+    "eslint": "^8.12.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-no-only-tests": "^2.6.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "hardhat": "^2.10.0",
+    "hardhat-abi-exporter": "^2.10.0",
+    "hardhat-deploy": "^0.11.11",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.3.7",
+    "prettier": "^2.6.1",
+    "prettier-plugin-solidity": "*",
+    "solc": "0.8.13",
+    "solhint": "^3.3.7",
+    "solhint-plugin-prettier": "^0.0.5",
+    "ts-node": "^10.8.2",
+    "typescript": "^4.7.4"
+  },
+  "lint-staged": {
+    "*.ts": [
+      "prettier --write"
+    ],
+    "*.sol": [
+      "prettier --write"
+    ],
+    "*.md": "prettier --write",
+    "*.js": "eslint --cache --fix"
+  },
+  "scripts": {
+    "build": "hardhat clean && hardhat compile",
+    "compile": "SKIP_LOAD=true hardhat compile",
+    "test": "npm run compile && hardhat test",
+    "deploy": "hardhat run ./scripts/run_deploy.ts",
+    "coverage": "hardhat coverage",
+    "lint": "npm run lint:sol",
+    "lint:sol": "solhint 'contracts/**/*.sol'",
+    "fmt": "npm run fmt:sol && npm run fmt:ts",
+    "fmt:sol": "prettier 'contracts/**/*.sol' -w",
+    "fmt:ts": "prettier --write '**/*.ts'",
+    "prepare": "husky install"
+  }
+}
