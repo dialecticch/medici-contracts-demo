@@ -3,6 +3,20 @@
 The Medici Safe is a gnosis-safe wallet used by Dialectic. This repository contains modules to provide functionality
 required by the Dialectic team.
 
+For further details check out the following articles:
+ - [Medici: Dialectic’s Yield Farmer
+](https://dialectic.ch/editorial/medici-dialectics-yield-farmer)
+ - [Chronograph: Institutional Grade Yield Farming
+](https://dialectic.ch/editorial/chronograph-overview)
+
+## Overview
+
+The Medici system is designed to allow bots to harvest yield on behalf of a [Gnosis Safe](https://safe.global/), this provides the ability to maintain a secure smart contract wallet without having to collect signatures for harvesting of yield.
+
+As it is designed, every Medici strategy is a [Safe Module](https://docs.safe.global/learn/safe-core/safe-core-protocol/modules-1), these need to be approved by the owner. Withdrawing and depositing can be done by special user roles, this means we also don't need to collect signatures from all owners for this. Funds never leave the custody of the Safe, and therefore this will never result in a loss, except if a malicious or broken strategy is approved.
+
+Upon harvesting, the yield is directly swapped into stablecoins and deposited into the safe. The swapping occurs through 1inch, ensuring best price settlement. The off-chain system finds the best prices and passes this data on-chain during execution. The [harvest test](https://github.com/dialecticch/medici-contracts-demo/blob/master/test/shared/harvest.ts) should provide a little more clarity on how this works.
+
 ## Development
 
 ### Dependencies
