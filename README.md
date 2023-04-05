@@ -9,6 +9,8 @@ For further details check out the following articles:
  - [Chronograph: Institutional Grade Yield Farming
 ](https://dialectic.ch/editorial/chronograph-overview)
 
+The backend infrastructure can be found [here](https://github.com/dialecticch/medici-go-demo).
+
 ## Overview
 
 The Medici system is designed to allow bots to harvest yield on behalf of a [Gnosis Safe](https://safe.global/), this provides the ability to maintain a secure smart contract wallet without having to collect signatures for harvesting of yield.
